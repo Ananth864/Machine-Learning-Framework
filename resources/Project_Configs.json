@@ -1,0 +1,68 @@
+{
+    "blockview": {
+		"target": "price",
+		"experiment_type": "regression",
+
+		"data": {
+			"data_retrieval_mode": "",
+			"local": {
+				"train_table_path": "",
+				"test_table_path": ""
+			},
+			"remote": {
+				"train_db": "", 
+				"test_db": "",
+				"train_table": "",
+				"test_table": ""
+			}
+		},
+		"feature_engineering": {
+		},
+		"feature_selection": {
+			"include": true, 
+			"method": "top",
+			"model": "dt",
+			"mul_col_thr": 0.4, 
+			"variance_threshold":0,
+			"cut-off": 0.01,
+			"top_n": 10,
+			"threshold": 0.99
+		},
+		"parameters":{
+			
+		},
+		"fold": 2,
+		"search_algorithm": "grid",
+		"search_library": "scikit-learn",
+		"setup_params":{
+		},
+		"imputation_method": "mean",
+		"custom_metrics":[],
+		"experiments": {
+			"exp1": {
+				"models": ["lr","lasso","xgboost"],
+				"n_iter": 10,
+				"optimize": "MAE"
+			}
+		},
+		"Top_N_Models":2,
+		"Ensemble_Models":{
+			"ensemble_flag": true,
+			"method": "Bagging",
+			"n_estimators": 10
+		},
+		"Stack_Models":{
+			"stack_flag": true,
+			"meta_model": "lr",
+			"restack": false
+		},
+		"Blend_Models": true,
+		"ensemble_scoring":{
+			"flag": 0, 
+			"method": {
+				"name": "", 
+				"fn": ""
+			}
+		}
+	}
+}

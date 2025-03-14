@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "simple": {
+      "format": "%(asctime)s %(filename)-18s %(funcName)s %(lineno)d %(levelname)-8s: %(message)s"
+    }
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    },
+    "file": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "formatter": "simple",
+      "filename": "info.log",
+      "encoding": "utf8"
+    }
+  },
+  "loggers": {
+    "": {
+      "handlers": ["file", "console"],
+      "propagate": true,
+      "level": "INFO"
+    },
+    "py.warnings": {
+      "propagate": true
+    }
+  }
+}
